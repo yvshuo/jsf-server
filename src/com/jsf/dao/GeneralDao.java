@@ -1,4 +1,4 @@
-package com.jsf.wxpay.dao;
+package com.jsf.dao;
 
 import java.util.List;
 import java.util.Map;

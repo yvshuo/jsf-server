@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jsf.wxpay.constants;
+package com.jsf.constants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ public class TableConstant {
 	 */
 	public static final Map<String, String> TABLE_BEAN = new HashMap<String, String>();
 	static{
-		TABLE_BEAN.put("com.wxpay.entity.OrderQueryRequestData", "order_query_req");
+		TABLE_BEAN.put("com.jsf.wxpay.entity.OrderQueryRequestData", "order_query_req");
 	}
 	
 	/**

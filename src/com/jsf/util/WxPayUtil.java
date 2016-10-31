@@ -128,7 +128,7 @@ public class WxPayUtil {
 									&& method.invoke(data, new Object[] {}).toString().length() != 0) {
 								map.put(fieldName, method.invoke(data, new Object[] {}).toString());
 							}
-						} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+						} catch (Exception e) {
 							e.printStackTrace();
 						}
 					}

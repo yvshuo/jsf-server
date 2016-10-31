@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.jsf.wxpay.dao.GeneralDao;
+import com.jsf.dao.GeneralDao;
 import com.jsf.wxpay.dao.OrderQueryDao;
 import com.jsf.wxpay.entity.OrderQueryRequestData;
 

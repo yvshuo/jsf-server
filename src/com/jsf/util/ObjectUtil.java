@@ -2,7 +2,8 @@ package com.jsf.util;
 
 import java.lang.reflect.Field;
 
-import com.jsf.wxpay.constants.TableConstant;
+import com.jsf.constants.TableConstant;
+
 
 
 /**

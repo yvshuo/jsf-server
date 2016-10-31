@@ -1,4 +1,4 @@
-package com.jsf.wxpay.dao.impl;
+package com.jsf.dao.impl;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
@@ -24,11 +24,11 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.jsf.constants.TableConstant;
+import com.jsf.dao.GeneralDao;
 import com.jsf.exception.DaoException;
 import com.jsf.util.ObjectUtil;
 import com.jsf.util.StringUtil;
-import com.jsf.wxpay.constants.TableConstant;
-import com.jsf.wxpay.dao.GeneralDao;
 import com.jsf.wxpay.entity.PageBean;
 
 
