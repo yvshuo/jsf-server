@@ -10,7 +10,7 @@
 	<mvc:annotation-driven />
 
 	<!-- 配置注解扫描的包路径 -->
-	<context:component-scan base-package="com.jsf.frontpage.*" />
+	<context:component-scan base-package="com.jsf.*" />
 
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="1" />
