@@ -39,18 +39,18 @@ public class HandleTtkReq extends BaseController{
 	 * @throws Exception
 	 */
 	@ResponseBody
-	@RequestMapping(value="/getLessonsByTag", method = RequestMethod.GET)
-	public Map<String, Object> getLessonsByTag(HttpServletRequest request,HttpServletResponse response) throws Exception{
+	@RequestMapping(value="/getLessonsByType", method = RequestMethod.GET)
+	public Map<String, Object> getLessonsByType(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<LessonBean> lessons = new ArrayList<>();
-		String tag = request.getParameter("tag");
-		if(StringUtils.isBlank(tag)){
+		String type = request.getParameter("type");
+		if(StringUtils.isBlank(type)){
 			logger.error("请求参数为空");
 			map.put("ret_code", 0);
 			map.put("ret_msg","请求参数异常");
 			return map;
 		}
-		lessons=(List<LessonBean>)queryLessonDao.queryLessonByType(tag);
+		lessons=(List<LessonBean>)queryLessonDao.queryLessonByType(type);
 		map.put("ret_code", 1);
 		map.put("ret_data", lessons);
         return map; 
