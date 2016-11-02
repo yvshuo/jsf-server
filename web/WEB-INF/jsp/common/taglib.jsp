@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/jsp/common/test.jsp"></jsp:include>
+
 </body>
 </html>

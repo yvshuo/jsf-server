@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jsf.frontpage.dao.QueryLessonDao;
@@ -29,25 +30,36 @@ public class HandleTtkReq extends BaseController{
 	@Autowired
 	private QueryLessonDao queryLessonDao;
 	
+
 	/**
-	 * TODO:获取课程列表
+	 * TODO:根据tag获取课程列表
 	 * @param request
 	 * @param response
-	 * return:void
-	 * @throws Exception 
+	 * @return Map<String, Object>
+	 * @throws Exception
 	 */
-	@RequestMapping(value="/getLesson", method = RequestMethod.GET)
-	public ModelAndView getLesson(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		logger.error("cao");
+	@ResponseBody
+	@RequestMapping(value="/getLessonsByTag", method = RequestMethod.GET)
+	public Map<String, Object> getLessonsByTag(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
 		List<LessonBean> lessons = new ArrayList<>();
 		String tag = request.getParameter("tag");
 		if(StringUtils.isBlank(tag)){
-			return null;
+			logger.error("请求参数为空");
+			map.put("ret_code", 0);
+			map.put("ret_msg","请求参数异常");
+			return map;
 		}
 		lessons=(List<LessonBean>)queryLessonDao.queryLessonByType(tag);
-        return new ModelAndView("jsonView").addObject(lessons); 
+		map.put("ret_code", 1);
+		map.put("ret_data", lessons);
+        return map; 
 	}
 	
+	/**
+	 * TODO:测试运行环境
+	 * @return
+	 */
 	@RequestMapping(value="/test", method = RequestMethod.GET)
 	public String test(){
 		return "test";

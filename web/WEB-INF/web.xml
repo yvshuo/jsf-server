@@ -50,13 +50,9 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
 
 	<!-- 配置servlet -->
 	<servlet>
@@ -72,6 +68,40 @@
 		<servlet-name>springMvc</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
+	    <!-- 会话超时配置（单位为分钟） -->
+<!-- 	<session-config> 
+	    <session-timeout>120</session-timeout> 
+	</session-config> -->
+  
+   	<!-- 登陆验证 开始，验证sessionId是否过期-->
+<!-- 	<filter>
+		<filter-name>frameworkFilter</filter-name>
+		<filter-class>com.codingyun.core.filter.FrameworkFilter</filter-class>
+		<init-param>
+			<param-name>exception</param-name>
+			<param-value>.css,.png,.jpg,.js,.gif,/index.jsp,/out.jsp,login_system.jsp,/login.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>baseUrlStatic</param-name>
+			<param-value>/static</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>frameworkFilter</filter-name>
+		<url-pattern>/backend/*</url-pattern>
+	</filter-mapping> -->
+	<!-- 登陆验证 结束 -->
+	
+	<!-- 通过错误码来配置error-page ,配置了当系统发生404错误时，跳转到错误处理页面NotFound.jsp。 -->
+	<error-page> 
+	    <error-code>404</error-code> 
+	    <location>/page404.html</location> 
+	</error-page> 
+	<!--  通过异常的类型配置error-page ,配置了当系统发生java.lang.NullException（即空指针异常）时，跳转到错误处理页面error.jsp  -->
+	<error-page> 
+	    <exception-type>java.lang.NullPointerException</exception-type> 
+	    <location>/error.jsp</location> 
+	</error-page>
 
 </web-app>
